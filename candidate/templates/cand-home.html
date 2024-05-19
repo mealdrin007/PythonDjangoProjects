@@ -1,0 +1,36 @@
+{%extends 'cand-base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-12" style="text-align:center;color:brown;">
+            <h1>Welcome Candidated</h1>
+            <h1>Find Your Choice of Career</h1>
+            <form action="" method="get">
+                <div class="row">
+                    <div class="col-1" style="padding: 5px;">posted_by:{{filter.form.posted_by}}</div>
+                    <div class="col-2" style="padding: 5px;">job_title:{{filter.form.job_title}}</div>
+                    <div class="col-2" style="padding: 5px;">role:{{filter.form.role}}</div>
+                    <div class="col-2" style="padding: 5px;">location:{{filter.form.location}}</div>
+                    <div class="col-2" style="padding: 5px;">salary:{{filter.form.salary}}</div>
+                    <div class="col-2" style="padding: 5px;">qulaification:{{filter.form.qulaification}}</div>
+                    <div class="col-1"style="padding: 5px;width:100px;"><pre></pre><input type="submit" class="btn btn-success" value="search"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        {%for job in filter.qs%}
+        <div class="col-1"></div>
+        <div class="col-4">
+            <ul class="list-group">
+                <li class="list-group-item"><h5>Job:-{{job.job_title}}</h5>
+                    Role:-{{job.role}}/Employer:-{{job.posted_by.username}}
+                </li>
+            </ul>
+
+        </div>
+        <div class="col-1"><a href="{%url 'cand-detailjob' job.id %}" class="btn btn-primary">view</a></div>
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

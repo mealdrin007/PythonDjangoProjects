@@ -1,0 +1,25 @@
+{%extends 'emp-base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10" style="color:white;">
+            <h3>Applied Candidates</h3>
+            {%for applied in appliedcand%}
+            <div class="card" style="width: 18rem;">
+                <img src="{{applied.applicant.candidates.profile_pic.url}}" class="card-img-top" alt="...">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Applicant Name: {{applied.applicant}}</li>
+                    <li class="list-group-item">Applied Date: {{applied.date}}</li>
+                    <li class="list-group-item">Qualification:{{applied.applicant.candidates.qualification}}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="{%url 'cand-details' applied.applicant.id %}" class="btn btn-outline-primary" style="width:250px;">View</a>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+{%endblock%}

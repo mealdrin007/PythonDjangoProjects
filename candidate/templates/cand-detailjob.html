@@ -1,0 +1,34 @@
+{%extends 'cand-base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="card text-bg-light mb-3" style="max-width: 100rem;">
+                <div class="card-header bg-transparent border-success" style="text-align: center;"><h4>{{job.job_title}}</h4></div>
+                <div class="card-body">
+                    <p class="card-title" style="text-align: center;">{{job.role}}</p>
+                    <p class="card-text" style="text-align: center;">{{job.job_description}}</p>
+                    <p class="card-text" style="text-align: center;">experiance: {{job.experience}} year</p>
+
+                    <p class="card-text" style="text-align: center;">location:-{{job.location}}</p>
+
+                    <p class="card-text" style="text-align: center;">salary: {{job.salary}}</p>
+                    <p class="card-text" style="text-align: center;">Last Date: {{job.last_date}}</p>
+
+                    <p class="card-text" style="text-align: center;">Qualification: {{job.qulaification}}</p>
+
+                </div>
+                {%if status%}
+                    <h5 style="text-align: center;color:blue;">Applied</h5>
+                {%else%}
+                    <div class="card-footer bg-transparent border-success" style="text-align: center;"><a href="{%url 'apply-now' job.id%}" type="submit" class="btn btn-outline-primary">Apply Now</a></div>
+                {%endif%}
+            </div>
+
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{%endblock%}

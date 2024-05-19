@@ -1,0 +1,27 @@
+{%extends 'cand-base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="card" style="width: 18rem;text-align:center;">
+                <img src="{{request.user.candidates.profile_pic.url}}" style="height:300px;" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Username:{{request.user}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Qualification:{{request.user.candidates.qualification}}</li>
+                    <li class="list-group-item">Age:{{request.user.candidates.age}}</li>
+                    <li class="list-group-item">skills:{{request.user.candidates.skills}}</li>
+                    <li class="list-group-item">CV File:<a href="{{request.user.candidates.cv.url}}">{{request.user.candidates.cv}}</a></li>
+                </ul>
+                <div class="card-body">
+                    <a href="{%url 'cand-editprofile' request.user.candidates.id%}" class="btn btn-outline-warning">Update</a>
+                    <a href="{%url 'profileremove' request.user.candidates.id%}" class="btn btn-outline-danger">Remove</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{%endblock%}

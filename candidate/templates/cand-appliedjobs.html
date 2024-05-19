@@ -1,0 +1,23 @@
+{%extends 'cand-base.html'%}
+{%block body_block%}
+    <table class="table table-bordered border-danger" style="text-align:center;">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Job Title</th>
+          <th scope="col">Role</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      {%for appl in applied%}
+        <tbody>
+          <tr>
+            <td>{{appl.date}}</td>
+            <td>{{appl.job.job_title}}</td>
+            <td>{{appl.job.role}}</td>
+            <td>{{appl.status}}</td>
+          </tr>
+        </tbody>
+      {%endfor%}
+</table>
+{%endblock%}

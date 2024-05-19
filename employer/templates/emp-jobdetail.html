@@ -1,0 +1,26 @@
+{%extends 'emp-base.html'%}
+{%block body_block%}
+<div class="container">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <div class="card text-left bg-transparent" style="width: 25rem;color:white;">
+                <div class="card-body">
+                    <div class="block">
+                        <h5 class="card-title"><span style="display: inline-block;width: 140px;">Job Title</span>: {{job.job_title}}</h5>
+                        <p class="card-text"><span style="display: inline-block;width: 140px;">Description</span>:{{job.job_description}}</p>
+                        <p class="card-text"><span style="display: inline-block;width: 140px;">Salary</span>:{{job.salary}}Rs.</p>
+                        <p class="card-text"><span style="display: inline-block;width: 140px;">Role</span>:{{job.role}}</p>
+                        <p class="card-text"><span style="display: inline-block;width: 140px;">Experiance</span>:{{job.experience}}Years</p>
+                        <p class="card-text"><span style="display: inline-block;width: 140px;">Location</span>:{{job.location}}</p>
+                        <p class="card-text"><span style="display: inline-block;width: 140px;">Posted Date</span>:{{job.created_date}}</p>
+                        <p class="card-text"><span style="display: inline-block;width: 140px;">Last Date</span>:{{job.last_date}}</p>
+                        <p class="card-text"><span style="display: inline-block;width: 140px;">Qualification</span>:{{job.qulaification}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

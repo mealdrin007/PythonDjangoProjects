@@ -1,0 +1,26 @@
+{%extends 'cand-base.html'%}
+{%block body_block%}
+
+<div class="container">
+    <h1>Page Number:{{page.number }}</h1>
+    {%for job in page%}
+    <div class="row" style="padding:5px;">
+      <div class="col-2"></div>
+      <div class="col-8">
+          <ul class="list-group">
+            <li class="list-group-item"><h5>Job:-{{job.job_title}}</h5>Role:-{{job.role}}/Employer:-{{job.posted_by.username}}</li>
+          </ul>
+      </div>
+      <div class="col-2"><a style="height:50px;width:100px;font-size:23px;text-align:center;" href="{%url 'cand-detailjob' job.id %}" class="btn btn-outline-primary">view</a></div>
+    </div>
+    {%endfor%}
+</div>
+<div class="page-links">
+    {%if page.has_previous%}
+    <a href="{%url 'cand-list' %}?page={{page.previous_page_number}}">previous</a>
+    {%endif%}
+    {%if page.has_next%}
+    <a href="{%url 'cand-list' %}?page={{page.next_page_number}}">next</a>
+    {%endif%}
+</div>
+{%endblock%}
